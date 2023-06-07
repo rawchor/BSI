@@ -1,0 +1,51 @@
+ssh user@ip
+user - alice
+
+zadanie_1
+ssh -l alice 10.0.85.62
+cat codebook.txt
+cd /var/log
+wc (word count)
+cat codebook.txt | head -3497 | tail -1
+
+zadanie_2 (5.2 CyberSkiller Environment - System Linux - Log analysis by date - 5.2 https://www.youtube.com/watch?v=9J5H5H6TYV0&t=1s)
+ssh -l alice 10.0.95.222  
+cat audit.log
+cat audit.log | grep 10:10:31
+
+zadanie_3 (5.3 CyberSkiller Environment - System Linux - Log analysis by length - 5.3 - https://youtu.be/4lRO81TjssA)
+ssh -l alice 10.0.84.144
+cd /var/log
+cat audit.log | grep -E "^.{150,180}" (^E oznacza regex)
+
+zadanie_4 (CyberSkiller Environment - System Linux - Log analysis by time frame - 5.4 https://youtu.be/cz1N_5UT9PI)
+ssh -l alice 10.0.122.15
+cd /var/log
+cat audit.log
+cat audit.log | grep -e "08:0[0-2]:[0-5][0-9]"
+
+zadanie_5 (CyberSkiller Environment - System Linux - Log analysis by a particular service - 5.5 https://youtu.be/uHVRAqXXxAE)
+ssh -l alice 10.0.56.0
+cd /var/log
+cat audit.log
+cat audit.log | grep "vsftpd\|ftp\|xinetd"
+
+zadanie_6 (CyberSkiller Environment - System Linux - Failed SSH login attempts analysis - 5.6 https://youtu.be/EiLWkwlr-WI)
+ssh -l alice 10.0.44.186
+cd /var/log
+cat audit.log
+cat audit.log |grep -E 'sshd.*failed'
+cat audit.log |grep -E 'sshd.*invalid'
+
+zadanie_7 (CyberSkiller Environment - System Linux - Successful SSH login attempts analysis - 5.7 https://youtu.be/WBp_073gFiI)
+ssh -l alice 10.0.55.196
+cd /var/log
+cat audit.log
+cat audit.log | grep opened
+
+zadanie_8 (CyberSkiller Environment - System Linux - Multiple failed SSH login attempts analysis - 5.8 https://youtu.be/Wo9RXZpXjdQ)
+ssh -l alice 10.0.55.196
+cd /var/log
+cat audit.log
+cat audit.log | grep user_
+
